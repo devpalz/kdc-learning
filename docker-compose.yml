@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  kdc:
+    image: kdc:latest
+    environment:
+      KRB5_REALM: DOMAIN.COM
+      KRB5_KDC_HOST_DNS: localhost
+    volumes:
+    - ./example-scripts:/script
+    ports:
+      - 88:88 # Export kdc server
+      - 749:749 # Export admin server
